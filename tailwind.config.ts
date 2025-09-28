@@ -138,3 +138,4 @@ export default {
   },
   plugins: [tailwindcssAnimate, tailwindcssAspectRatio],
 } satisfies Config;
+Fix tailwind config - add automotive colors
