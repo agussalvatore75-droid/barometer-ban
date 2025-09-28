@@ -59,11 +59,27 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom automotive colors
+        'automotive-dark': '#2d3748',
+        'automotive-darker': '#1a202c', 
+        'automotive-silver': '#e2e8f0',
+        'automotive-orange': '#ff6b35',
+        'automotive-green': '#38a169',
+        'automotive-red': '#e53e3e',
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+      },
+      backgroundImage: {
+        'automotive-gradient': 'linear-gradient(135deg, #2d3748 0%, #1a202c 100%)',
+        'automotive-light-gradient': 'linear-gradient(135deg, #e2e8f0 0%, #ffffff 100%)',
+        'automotive-accent-gradient': 'linear-gradient(135deg, #ff6b35 0%, #ff6b35 100%)',
       },
       keyframes: {
         "accordion-down": {
@@ -82,10 +98,41 @@ export default {
             height: "0",
           },
         },
+        "fade-in-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(30px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "slide-in-right": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(30px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
+        "pulse-glow": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px rgba(255, 107, 53, 0.4)",
+          },
+          "50%": {
+            boxShadow: "0 0 30px rgba(255, 107, 53, 0.6)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in-up": "fade-in-up 0.6s ease-out",
+        "slide-in-right": "slide-in-right 0.6s ease-out",
+        "pulse-glow": "pulse-glow 2s infinite",
       },
     },
   },
