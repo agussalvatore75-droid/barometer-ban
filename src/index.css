@@ -45,14 +45,6 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     
-    /* Custom automotive colors */
-    --automotive-dark: 220 15% 15%;
-    --automotive-darker: 220 20% 10%;
-    --automotive-silver: 210 20% 85%;
-    --automotive-orange: 20 100% 55%;
-    --automotive-green: 142 76% 36%;
-    --automotive-red: 0 84% 60%;
-    
     --radius: 0.75rem;
   }
 
@@ -97,121 +89,61 @@
   }
 }
 
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@layer components {
+  /* Glass morphism effect */
+  .glass-morphism {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-lg;
+  }
+
+  /* Custom button styles */
+  .btn-automotive {
+    @apply bg-automotive-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-automotive-outline {
+    @apply border-2 border-gray-800 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gray-800 hover:text-white hover:scale-105;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+
+  /* Container max width */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* Text gradients */
+  .text-automotive-gradient {
+    @apply bg-gradient-to-r from-automotive-dark to-automotive-orange bg-clip-text text-transparent;
   }
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-muted;
   }
-}
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-automotive-dark rounded;
   }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    @apply bg-automotive-darker;
   }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s infinite;
-}
-
-/* Gradient backgrounds */
-.bg-automotive-gradient {
-  background: linear-gradient(135deg, hsl(var(--automotive-dark)) 0%, hsl(var(--automotive-darker)) 100%);
-}
-
-.bg-automotive-light-gradient {
-  background: linear-gradient(135deg, hsl(var(--automotive-silver)) 0%, white 100%);
-}
-
-.bg-automotive-accent-gradient {
-  background: linear-gradient(135deg, hsl(var(--automotive-orange)) 0%, #ff6b35 100%);
-}
-
-/* Glass morphism effect */
-.glass-morphism {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--automotive-dark));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--automotive-darker));
-}
-
-/* Hover effects */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Text gradients */
-.text-automotive-gradient {
-  background: linear-gradient(135deg, hsl(var(--automotive-dark)) 0%, hsl(var(--automotive-orange)) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Custom button styles */
-.btn-automotive {
-  @apply bg-automotive-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg;
-}
-
-.btn-automotive-outline {
-  @apply border-2 border-gray-800 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-gray-800 hover:text-white hover:scale-105;
-}
-
-/* Section spacing */
-.section-padding {
-  @apply py-20 lg:py-28;
-}
-
-/* Container max width */
-.container-custom {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
 }
